@@ -3,19 +3,73 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: 79, 70, 229;    /* Indigo-600 */
+  --primary-light: 99, 102, 241;  /* Indigo-500 */
+  --secondary: 236, 72, 153;  /* Pink-500 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-50;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-500;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .button-primary {
+    @apply px-8 py-3 rounded-xl font-medium transition-all duration-200
+           bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400
+           text-white shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/40
+           hover:-translate-y-0.5;
+  }
+
+  .button-secondary {
+    @apply px-8 py-3 rounded-xl font-medium transition-all duration-200
+           bg-white hover:bg-gray-50 text-gray-700
+           border border-gray-200 shadow-lg
+           hover:-translate-y-0.5;
+  }
+
+  .feature-card {
+    @apply p-8 rounded-2xl transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1
+           bg-gradient-to-b from-white to-gray-50/50
+           border border-gray-100;
+  }
+
+  .pricing-card {
+    @apply p-8 rounded-2xl transition-all duration-300
+           hover:shadow-2xl hover:-translate-y-1
+           bg-gradient-to-b from-white to-gray-50/50
+           border border-gray-100;
+  }
+
+  .pricing-card-pro {
+    @apply p-8 rounded-2xl transition-all duration-300
+           hover:shadow-2xl hover:-translate-y-1
+           bg-gradient-to-br from-indigo-600 to-pink-500
+           border-2 border-transparent;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
