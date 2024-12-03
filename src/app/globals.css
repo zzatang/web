@@ -6,6 +6,8 @@
   --primary: 79, 70, 229;    /* Indigo-600 */
   --primary-light: 99, 102, 241;  /* Indigo-500 */
   --secondary: 236, 72, 153;  /* Pink-500 */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
 }
 
 @layer base {
@@ -20,11 +22,12 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600;
   }
   
   .glass-card {
     @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl;
+    @apply bg-white bg-opacity-50 backdrop-blur-lg border border-gray-200;
   }
 
   .button-primary {
@@ -32,6 +35,8 @@
            bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400
            text-white shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/40
            hover:-translate-y-0.5;
+    @apply px-4 py-2 bg-gradient-to-r from-indigo-600 to-pink-600 text-white rounded-lg 
+    hover:from-indigo-500 hover:to-pink-500 transition-all duration-200 font-medium;
   }
 
   .button-secondary {
@@ -39,6 +44,8 @@
            bg-white hover:bg-gray-50 text-gray-700
            border border-gray-200 shadow-lg
            hover:-translate-y-0.5;
+    @apply px-4 py-2 bg-white text-gray-700 rounded-lg border border-gray-200
+    hover:bg-gray-50 transition-all duration-200 font-medium;
   }
 
   .feature-card {
@@ -60,6 +67,14 @@
            hover:shadow-2xl hover:-translate-y-1
            bg-gradient-to-br from-indigo-600 to-pink-500
            border-2 border-transparent;
+  }
+
+  .nav-link {
+    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200;
+  }
+
+  .nav-link-active {
+    @apply text-indigo-600 font-medium;
   }
 }
 

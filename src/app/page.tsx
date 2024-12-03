@@ -5,23 +5,7 @@ const montserrat = Montserrat({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <div className={`min-h-screen bg-gray-50 ${montserrat.className}`}>
-      {/* Navigation */}
-      <nav className="fixed w-full glass-card z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex-shrink-0">
-              <span className="text-2xl font-bold gradient-text">LocalSEO Tracker</span>
-            </div>
-            <div className="hidden sm:flex sm:space-x-8">
-              <Link href="#features" className="text-gray-600 hover:text-indigo-600 transition-colors">Features</Link>
-              <Link href="#pricing" className="text-gray-600 hover:text-indigo-600 transition-colors">Pricing</Link>
-              <Link href="/login" className="button-primary !py-2">Login</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Elements */}
@@ -40,12 +24,12 @@ export default function Home() {
               Stay ahead of local competition with real-time insights.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-              <button className="button-primary text-lg">
+              <a href="/sign-up" className="button-primary text-lg">
                 Start Free Trial
-              </button>
-              <button className="button-secondary text-lg">
+              </a>
+              <a href="/features" className="button-secondary text-lg">
                 View Demo
-              </button>
+              </a>
             </div>
           </div>
         </div>
